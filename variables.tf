@@ -69,6 +69,42 @@ variable "topic_display_name" {
   default     = ""
 }
 
+variable "http_success_feedback_sample_rate" {
+  description = "Percentage (0-100) of successful HTTP/HTTPS deliveries to log."
+  type        = number
+  default     = null
+}
+
+variable "http_success_feedback_role_arn" {
+  description = "IAM role ARN for HTTP/HTTPS success feedback logging."
+  type        = string
+  default     = ""
+}
+
+variable "http_failure_feedback_role_arn" {
+  description = "IAM role ARN for HTTP/HTTPS failure feedback logging."
+  type        = string
+  default     = ""
+}
+
+variable "lambda_success_feedback_sample_rate" {
+  description = "Percentage (0-100) of successful Lambda deliveries to log."
+  type        = number
+  default     = null
+}
+
+variable "lambda_success_feedback_role_arn" {
+  description = "IAM role ARN for Lambda success feedback logging."
+  type        = string
+  default     = ""
+}
+
+variable "lambda_failure_feedback_role_arn" {
+  description = "IAM role ARN for Lambda failure feedback logging."
+  type        = string
+  default     = ""
+}
+
 # Variables for SNS Topic Policy (Optional)
 
 variable "create_topic_policy" {

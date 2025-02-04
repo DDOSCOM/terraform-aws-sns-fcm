@@ -16,6 +16,14 @@ resource "aws_sns_topic" "this" {
   count        = var.create_topic ? 1 : 0
   name         = var.topic_name
   display_name = var.topic_display_name
+
+  http_success_feedback_sample_rate = var.http_success_feedback_sample_rate
+  http_success_feedback_role_arn    = var.http_success_feedback_role_arn
+  http_failure_feedback_role_arn    = var.http_failure_feedback_role_arn
+
+  lambda_success_feedback_sample_rate = var.lambda_success_feedback_sample_rate
+  lambda_success_feedback_role_arn    = var.lambda_success_feedback_role_arn
+  lambda_failure_feedback_role_arn    = var.lambda_failure_feedback_role_arn
 }
 
 # SNS Topic Policy (Optional)
