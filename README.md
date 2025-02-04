@@ -10,7 +10,9 @@ Creates an SNS Platform Application using the required platform_application_name
 Supports configuration of event notification topics using the following optional parameters:
 
 -- event_endpoint_created_topic_arn
+
 -- event_endpoint_deleted_topic_arn
+
 -- event_endpoint_updated_topic_arn
 
 ## Optional SNS Topic Creation:
