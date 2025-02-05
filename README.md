@@ -1,3 +1,27 @@
+## Terraform AWS SNS FCM Module
+This repository contains a Terraform module that provisions an AWS SNS Platform Application specifically configured for Firebase Cloud Messaging (FCM). The module leverages AWS SNS's support for Google Cloud Messaging (GCM) to enable push notifications via FCM.
+
+## Features
+SNS Platform Application for FCM:
+Creates an SNS Platform Application using the required platform_application_name, platform (set to "GCM" for FCM), and platform_credential (the FCM API key).
+- Optional Event Notifications:
+Supports configuration of event notification topics using the following optional parameters:
+- event_endpoint_created_topic_arn
+- event_endpoint_deleted_topic_arn
+- event_endpoint_updated_topic_arn
+
+## Optional SNS Topic Creation:
+Allows you to create an SNS Topic with customizable topic_name and topic_display_name.
+- Optional SNS Topic Policy and Data Protection Policy:
+You can attach a fully formed JSON policy to the SNS Topic and define a data protection policy if needed.
+- Optional SNS Topic Subscription:
+Supports subscribing an endpoint (such as an email, HTTP endpoint, or Lambda function) to the SNS Topic with configurable protocol and endpoint.
+- Optional SMS Preferences:
+Enables the configuration of SMS preferences at the account level (e.g., setting the default sender ID, SMS type, and monthly spend limit).
+
+## Usage
+Configure the module by passing in the required variables (such as your FCM API key) along with any optional parameters. The module is designed to be integrated into a larger infrastructure-as-code setup and can be deployed using tools like Terragrunt for multi-environment management.
+
 ## Requirements
 
 | Name | Version |
