@@ -42,6 +42,12 @@ No modules.
 | <a name="input_event_endpoint_updated_topic_arn"></a> [event\_endpoint\_updated\_topic\_arn](#input\_event\_endpoint\_updated\_topic\_arn) | ARN of the SNS Topic for endpoint update notifications (optional). | `string` | `""` | no |
 | <a name="input_fcm_api_key"></a> [fcm\_api\_key](#input\_fcm\_api\_key) | API Key for Firebase Cloud Messaging (FCM). | `string` | `""` | no |
 | <a name="input_fcm_credentials_json"></a> [fcm\_credentials\_json](#input\_fcm\_credentials\_json) | JSON file content with FCM connection secrets; used instead of fcm\_api\_key if provided. | `string` | `""` | no |
+| <a name="input_http_failure_feedback_role_arn"></a> [http\_failure\_feedback\_role\_arn](#input\_http\_failure\_feedback\_role\_arn) | IAM role ARN for HTTP/HTTPS failure feedback logging. | `string` | `""` | no |
+| <a name="input_http_success_feedback_role_arn"></a> [http\_success\_feedback\_role\_arn](#input\_http\_success\_feedback\_role\_arn) | IAM role ARN for HTTP/HTTPS success feedback logging. | `string` | `""` | no |
+| <a name="input_http_success_feedback_sample_rate"></a> [http\_success\_feedback\_sample\_rate](#input\_http\_success\_feedback\_sample\_rate) | Percentage (0-100) of successful HTTP/HTTPS deliveries to log. | `number` | `null` | no |
+| <a name="input_lambda_failure_feedback_role_arn"></a> [lambda\_failure\_feedback\_role\_arn](#input\_lambda\_failure\_feedback\_role\_arn) | IAM role ARN for Lambda failure feedback logging. | `string` | `""` | no |
+| <a name="input_lambda_success_feedback_role_arn"></a> [lambda\_success\_feedback\_role\_arn](#input\_lambda\_success\_feedback\_role\_arn) | IAM role ARN for Lambda success feedback logging. | `string` | `""` | no |
+| <a name="input_lambda_success_feedback_sample_rate"></a> [lambda\_success\_feedback\_sample\_rate](#input\_lambda\_success\_feedback\_sample\_rate) | Percentage (0-100) of successful Lambda deliveries to log. | `number` | `null` | no |
 | <a name="input_platform"></a> [platform](#input\_platform) | Platform for the application; use 'GCM' for FCM. | `string` | `"GCM"` | no |
 | <a name="input_platform_application_name"></a> [platform\_application\_name](#input\_platform\_application\_name) | Name for the SNS application (Platform Application). | `string` | n/a | yes |
 | <a name="input_sms_default_sender_id"></a> [sms\_default\_sender\_id](#input\_sms\_default\_sender\_id) | Default sender ID for SMS. | `string` | `""` | no |
