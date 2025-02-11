@@ -2,8 +2,8 @@
 resource "aws_sns_platform_application" "fcm" {
   count               = var.create_platform_application ? 1 : 0
   name                = var.platform_application_name
-  platform            = var.platform # Para FCM se utiliza "GCM"
-  platform_credential = var.fcm_api_key
+  platform            = var.platform
+  platform_credential = local.platform_credential
 
 # Optional: event notification configuration (if provided)
   event_endpoint_created_topic_arn = var.event_endpoint_created_topic_arn

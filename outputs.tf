@@ -17,3 +17,8 @@ output "sms_preferences" {
   description = "SMS preferences configuration (if set)."
   value       = var.create_sms_preferences ? aws_sns_sms_preferences.this[0] : null
 }
+
+output "logging_role_arn" {
+  description = "ARN of the IAM role for SNS logging, if enabled."
+  value       = var.enable_delivery_status_logging ? aws_iam_role.sns_logging[0].arn : ""
+}

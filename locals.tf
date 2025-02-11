@@ -1,7 +1,7 @@
 locals {
   # Selects the credential value:
   # Uses the JSON file content if provided; otherwise, uses the API key.
-  platform_credential = var.fcm_credentials_json != "" ? var.fcm_credentials_json : var.fcm_api_key
+  platform_credential = var.fcm_credentials_json != "" ? jsondecode(var.fcm_credentials_json)["private_key"] : var.fcm_api_key
 
   # Base map with the FCM credential.
   base_attributes = {
@@ -22,3 +22,6 @@ locals {
     var.additional_platform_attributes
   )
 }
+
+data "aws_caller_identity" "current" {}
+data "aws_partition" "current" {}

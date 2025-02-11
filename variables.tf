@@ -192,3 +192,9 @@ variable "additional_platform_attributes" {
   type        = map(string)
   default     = {}
 }
+
+variable "enable_delivery_status_logging" {
+  description = "Enables the creation of the IAM role for SNS feedback logging."
+  type        = bool
+  default     = false
+}
