@@ -43,12 +43,16 @@ No modules.
 
 | Name | Type |
 |------|------|
+| [aws_iam_role.sns_logging](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role) | resource |
+| [aws_iam_role_policy_attachment.sns_logging_attachment](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy_attachment) | resource |
 | [aws_sns_platform_application.fcm](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sns_platform_application) | resource |
 | [aws_sns_sms_preferences.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sns_sms_preferences) | resource |
 | [aws_sns_topic.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sns_topic) | resource |
 | [aws_sns_topic_data_protection_policy.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sns_topic_data_protection_policy) | resource |
 | [aws_sns_topic_policy.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sns_topic_policy) | resource |
 | [aws_sns_topic_subscription.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sns_topic_subscription) | resource |
+| [aws_caller_identity.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity) | data source |
+| [aws_partition.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/partition) | data source |
 
 ## Inputs
 
@@ -61,10 +65,10 @@ No modules.
 | <a name="input_create_topic_data_protection_policy"></a> [create\_topic\_data\_protection\_policy](#input\_create\_topic\_data\_protection\_policy) | Determines if a data protection policy for the SNS Topic should be created. | `bool` | `false` | no |
 | <a name="input_create_topic_policy"></a> [create\_topic\_policy](#input\_create\_topic\_policy) | Determines if a policy for the SNS Topic should be created. | `bool` | `false` | no |
 | <a name="input_create_topic_subscription"></a> [create\_topic\_subscription](#input\_create\_topic\_subscription) | Determines if a subscription to the SNS Topic should be created. | `bool` | `false` | no |
+| <a name="input_enable_delivery_status_logging"></a> [enable\_delivery\_status\_logging](#input\_enable\_delivery\_status\_logging) | Enables the creation of the IAM role for SNS feedback logging. | `bool` | `false` | no |
 | <a name="input_event_endpoint_created_topic_arn"></a> [event\_endpoint\_created\_topic\_arn](#input\_event\_endpoint\_created\_topic\_arn) | ARN of the SNS Topic for endpoint creation notifications (optional). | `string` | `""` | no |
 | <a name="input_event_endpoint_deleted_topic_arn"></a> [event\_endpoint\_deleted\_topic\_arn](#input\_event\_endpoint\_deleted\_topic\_arn) | ARN of the SNS Topic for endpoint deletion notifications (optional). | `string` | `""` | no |
 | <a name="input_event_endpoint_updated_topic_arn"></a> [event\_endpoint\_updated\_topic\_arn](#input\_event\_endpoint\_updated\_topic\_arn) | ARN of the SNS Topic for endpoint update notifications (optional). | `string` | `""` | no |
-| <a name="input_fcm_api_key"></a> [fcm\_api\_key](#input\_fcm\_api\_key) | API Key for Firebase Cloud Messaging (FCM). | `string` | `""` | no |
 | <a name="input_fcm_credentials_json"></a> [fcm\_credentials\_json](#input\_fcm\_credentials\_json) | JSON file content with FCM connection secrets; used instead of fcm\_api\_key if provided. | `string` | `""` | no |
 | <a name="input_http_failure_feedback_role_arn"></a> [http\_failure\_feedback\_role\_arn](#input\_http\_failure\_feedback\_role\_arn) | IAM role ARN for HTTP/HTTPS failure feedback logging. | `string` | `""` | no |
 | <a name="input_http_success_feedback_role_arn"></a> [http\_success\_feedback\_role\_arn](#input\_http\_success\_feedback\_role\_arn) | IAM role ARN for HTTP/HTTPS success feedback logging. | `string` | `""` | no |
@@ -89,6 +93,7 @@ No modules.
 
 | Name | Description |
 |------|-------------|
+| <a name="output_logging_role_arn"></a> [logging\_role\_arn](#output\_logging\_role\_arn) | ARN of the IAM role for SNS logging, if enabled. |
 | <a name="output_platform_application_arn"></a> [platform\_application\_arn](#output\_platform\_application\_arn) | ARN of the SNS platform application for FCM. |
 | <a name="output_sms_preferences"></a> [sms\_preferences](#output\_sms\_preferences) | SMS preferences configuration (if set). |
 | <a name="output_topic_arn"></a> [topic\_arn](#output\_topic\_arn) | ARN of the SNS topic (if created). |

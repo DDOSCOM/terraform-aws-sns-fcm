@@ -4,6 +4,7 @@ resource "aws_sns_platform_application" "fcm" {
   name                = var.platform_application_name
   platform            = var.platform
   platform_credential = local.platform_credential
+  platform_principal = ""
 
 # Optional: event notification configuration (if provided)
   event_endpoint_created_topic_arn = var.event_endpoint_created_topic_arn

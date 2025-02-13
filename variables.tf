@@ -17,16 +17,16 @@ variable "platform" {
   default     = "GCM"
 }
 
-variable "fcm_api_key" {
-  description = "API Key for Firebase Cloud Messaging (FCM)."
-  type        = string
-  default     = ""
-}
-
 variable "fcm_credentials_json" {
   description = "JSON file content with FCM connection secrets; used instead of fcm_api_key if provided."
   type        = string
   default     = ""
+  sensitive   = true
+
+  validation {
+    condition     = can(jsondecode(var.fcm_credentials_json))
+    error_message = "The Firebase JSON is invalid"
+}
 }
 
 # Variables for event notifications (optional)
