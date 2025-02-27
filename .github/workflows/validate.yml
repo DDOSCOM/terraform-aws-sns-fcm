@@ -19,3 +19,5 @@ jobs:
         run: terraform init
       - name: Validate Terraform
         run: terraform validate -no-color
+      - name: Validate Format
+        run: terraform fmt -recursive -list=true -check
