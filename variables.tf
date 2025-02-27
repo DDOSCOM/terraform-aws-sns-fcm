@@ -26,7 +26,7 @@ variable "fcm_credentials_json" {
   validation {
     condition     = can(jsondecode(var.fcm_credentials_json))
     error_message = "The Firebase JSON is invalid"
-}
+  }
 }
 
 # Variables for event notifications (optional)
